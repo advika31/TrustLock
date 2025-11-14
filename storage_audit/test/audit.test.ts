@@ -1,23 +1,18 @@
-// /test/audit.test.ts
-
-/// <reference types="jest" />
-
+// test/audit.test.ts
 import request from 'supertest';
-import { spawn } from 'child_process';
+import app from '../src/index';
 
-const server = 'http://localhost:9000';
 const token = 'token1';
 
 describe('audit append', () => {
-  let proc: any;
+  let server: any;
 
   beforeAll((done) => {
-    proc = spawn('npx', ['ts-node-dev', '--respawn', '--transpile-only', 'src/index.ts'], { stdio: 'inherit' });
-    setTimeout(done, 1200);
+    server = app.listen(0, () => done());
   });
 
-  afterAll(() => {
-    proc.kill();
+  afterAll((done) => {
+    server.close(done);
   });
 
   it('appends audit record and returns log_hash', async () => {

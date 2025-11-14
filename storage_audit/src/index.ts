@@ -1,5 +1,4 @@
 // src/index.ts
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import storeRoutes from './routes/store';
@@ -17,6 +16,14 @@ app.use('/sanctions', sanctionsRoutes);
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
-app.listen(PORT, () => {
-  console.log(`storage_audit running on port ${PORT}`);
-});
+// Export the app for tests / other modules
+export default app;
+
+// If the file is run directly (node src/index.ts), start listening.
+// This keeps behavior identical when run directly but allows tests to import app.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    // eslint-disable-next-line no-console
+    console.log(`storage_audit running on port ${PORT}`);
+  });
+}

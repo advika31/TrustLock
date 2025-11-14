@@ -1,33 +1,28 @@
-// /test/store.test.ts
-
-/// <reference types="jest" />
-
+// test/store.test.ts
 import request from 'supertest';
 import fs from 'fs-extra';
 import path from 'path';
-import { spawn } from 'child_process';
+import app from '../src/index';
 
-const server = 'http://localhost:9000';
 const token = 'token1';
 
 describe('store upload', () => {
-  let proc: any;
+  let server: any;
 
   beforeAll((done) => {
-    // start the server in dev mode
-    proc = spawn('npx', ['ts-node-dev', '--respawn', '--transpile-only', 'src/index.ts'], { stdio: 'inherit' });
-    setTimeout(done, 1200);
+    // start server on an ephemeral port
+    server = app.listen(0, () => done());
   });
 
-  afterAll(() => {
-    proc.kill();
+  afterAll((done) => {
+    server.close(done);
   });
 
   it('uploads file and returns hash', async () => {
     const res = await request(server)
       .post('/store/upload')
       .set('X-Service-Token', token)
-      .attach('file', path.join(__dirname, '../demo/sample_id.png'));
+      .attach('file', path.join(__dirname, '../demo/sample_id.jpg'));
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty('storage_path');
     expect(res.body).toHaveProperty('hash');
