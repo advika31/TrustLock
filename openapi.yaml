@@ -1,0 +1,60 @@
+openapi: 3.0.1
+info:
+  title: TrustLock Storage & Audit API
+  version: "1.0.0"
+paths:
+  /store/upload:
+    post:
+      summary: Upload a file
+      parameters:
+        - in: header
+          name: X-Service-Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: success
+  /audit/append:
+    post:
+      summary: Append audit record
+      parameters:
+        - in: header
+          name: X-Service-Token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [audit_id, actor, action, payload, prev_hash]
+              properties:
+                audit_id: { type: string }
+                actor: { type: string }
+                action: { type: string }
+                payload: { type: object }
+                prev_hash: { type: string }
+      responses:
+        '200':
+          description: success
+  /sanctions/check:
+    get:
+      summary: Check sanctions stub
+      parameters:
+        - in: query
+          name: name
+          schema: { type: string }
+      responses:
+        '200':
+          description: success
