@@ -1,12 +1,13 @@
-// /src/routes/store.ts
-
+// src/routes/store.ts
 import express from 'express';
 import multer from 'multer';
-import { LocalStorage } from '../lib/storage';
+import crypto from 'crypto';
+import { createStorage } from '../lib/storage';
 import { SERVICE_TOKENS, MAX_UPLOAD_MB } from '../config';
+import { putObjectMeta, getObjectMeta } from '../lib/metadataLevel';
 
 const upload = multer({ limits: { fileSize: MAX_UPLOAD_MB * 1024 * 1024 } });
-const storage = new LocalStorage();
+const storage = createStorage();
 
 const router = express.Router();
 
@@ -31,7 +32,25 @@ router.post('/upload', authMiddleware, upload.single('file'), async (req, res) =
       originalName = req.body.filename || undefined;
     }
 
+    const sha256 = crypto.createHash('sha256').update(buffer).digest('hex');
+
+    // check metadata store first (idempotency)
+    const existingMeta = await getObjectMeta(sha256);
+    if (existingMeta) {
+      return res.json({ storage_path: existingMeta.storage_path, hash: `sha256:${sha256}`, size: existingMeta.size });
+    }
+
     const result = await storage.put(buffer, originalName);
+
+    // then persist metadata
+    await putObjectMeta({
+      sha256: result.sha256,
+      storage_path: result.path,
+      size: result.size,
+      original_name: originalName,
+      created_at: new Date().toISOString()
+    });
+
     return res.json({ storage_path: result.path, hash: `sha256:${result.sha256}`, size: result.size });
   } catch (err) {
     console.error(err);

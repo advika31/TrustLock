@@ -1,12 +1,13 @@
-// /src/lib/storage.ts
-
+// src/lib/storage.ts
 import fs from 'fs-extra';
 import path from 'path';
 import crypto from 'crypto';
 import { DATA_DIR } from '../config';
+import { MinioStorage } from './minioStorage'; // minio adapter (optional)
 
 export type PutResult = { path: string; size: number; sha256: string };
 
+// LocalStorage implementation
 export class LocalStorage {
   baseDir: string;
   constructor(baseDir = DATA_DIR) {
@@ -18,8 +19,8 @@ export class LocalStorage {
   async put(buffer: Buffer, originalName?: string): Promise<PutResult> {
     const sha256 = crypto.createHash('sha256').update(buffer).digest('hex');
     const ext = originalName ? path.extname(originalName) : '';
-    const date = new Date().toISOString().slice(0,10).replace(/-/g,'');
-    const filename = `${crypto.randomUUID()}_${sha256.slice(0,8)}${ext}`;
+    const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const filename = `${(typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Date.now().toString(36))}_${sha256.slice(0, 8)}${ext}`;
     const relPath = path.join('objects', date, filename);
     const absPath = path.join(this.baseDir, relPath);
 
@@ -48,11 +49,18 @@ export class LocalStorage {
       const folderPath = path.join(objectsDir, dateFolder);
       const files = await fs.readdir(folderPath).catch(() => []);
       for (const f of files) {
-        if (f.includes(sha256.slice(0,8))) {
+        if (f.includes(sha256.slice(0, 8))) {
           return path.join(folderPath, f);
         }
       }
     }
     return null;
   }
+}
+
+// factory
+const backend = (process.env.STORAGE_BACKEND || 'local').toLowerCase();
+export function createStorage() {
+  if (backend === 'minio') return new MinioStorage();
+  return new LocalStorage();
 }

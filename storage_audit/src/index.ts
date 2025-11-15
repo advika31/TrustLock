@@ -4,7 +4,21 @@ import bodyParser from 'body-parser';
 import storeRoutes from './routes/store';
 import auditRoutes from './routes/audit';
 import sanctionsRoutes from './routes/sanctions';
+import cron from 'node-cron';
+import { createMerkleSnapshot } from './lib/merkle';
 import { PORT } from './config';
+import merkleRoutes from './routes/merkle';
+import webhookRoutes from './routes/webhooks';
+import eventRoutes from './routes/events';
+
+cron.schedule('0 * * * *', async () => { // every hour on the hour
+  try {
+    const s = await createMerkleSnapshot();
+    console.log('Merkle snapshot created', s);
+  } catch (e) {
+    console.error('Merkle snapshot failed', e);
+  }
+});
 
 const app = express();
 app.use(bodyParser.json({ limit: '10mb' }));
@@ -13,6 +27,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/store', storeRoutes);
 app.use('/audit', auditRoutes);
 app.use('/sanctions', sanctionsRoutes);
+
+app.use('/merkle', merkleRoutes);
+app.use('/webhook', webhookRoutes);
+app.use('/events', eventRoutes);
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 

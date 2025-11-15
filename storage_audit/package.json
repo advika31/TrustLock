@@ -8,7 +8,7 @@
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc"
   },
-   "jest": {
+  "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
     "testTimeout": 10000
@@ -18,19 +18,29 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "fs-extra": "^11.3.2",
+    "knex": "^3.1.0",
+    "level": "^10.0.0",
+    "merkletreejs": "^0.6.0",
+    "minio": "^8.0.6",
     "multer": "^2.0.2",
+    "node-cron": "^4.2.1",
+    "pg": "^8.16.3",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
     "@types/fs-extra": "^11.0.4",
     "@types/jest": "^30.0.0",
+    "@types/minio": "^7.1.0",
     "@types/mocha": "^10.0.10",
     "@types/multer": "^2.0.0",
     "@types/node": "^24.10.1",
+    "@types/node-cron": "^3.0.11",
+    "@types/pg": "^8.15.6",
     "@types/supertest": "^6.0.3",
     "jest": "^30.2.0",
     "supertest": "^7.1.4",
