@@ -58,4 +58,19 @@ router.post('/upload', authMiddleware, upload.single('file'), async (req, res) =
   }
 });
 
+// GET /store/meta/:sha - read metadata for a sha256 (debug endpoint)
+router.get('/meta/:sha', authMiddleware, async (req, res) => {
+  try {
+    const sha = req.params.sha;
+    if (!sha || sha.length < 8) return res.status(400).json({ error: 'invalid_sha' });
+    const meta = await getObjectMeta(sha);
+    if (!meta) return res.status(404).json({ error: 'not_found' });
+    return res.json(meta);
+  } catch (err) {
+    console.error('meta_read_error', err);
+    return res.status(500).json({ error: 'meta_read_failed' });
+  }
+});
+
+
 export default router;

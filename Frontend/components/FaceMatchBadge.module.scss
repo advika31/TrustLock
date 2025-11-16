@@ -1,0 +1,82 @@
+// Variables are imported globally via globals.css
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  padding: var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  min-width: 200px;
+}
+
+.similaritySection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.similarityLabel {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.similarityValue {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+}
+
+.similarityBar {
+  width: 100%;
+  height: 8px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.similarityFill {
+  height: 100%;
+  transition: width var(--transition-base);
+  border-radius: var(--radius-full);
+}
+
+.confidenceSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+.confidenceLabel {
+  color: var(--color-text-light);
+}
+
+.confidenceValue {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.livenessSection {
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.livenessBadge {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+@media (max-width: 640px) {
+  .badge {
+    width: 100%;
+  }
+}
+

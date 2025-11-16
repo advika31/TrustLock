@@ -1,0 +1,110 @@
+// Variables are imported globally via globals.css
+
+.dashboard {
+  min-height: 100vh;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: var(--color-bg-secondary);
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.loading,
+.error {
+  padding: var(--spacing-lg);
+  text-align: center;
+  border-radius: var(--radius-md);
+}
+
+.loading {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-light);
+}
+
+.error {
+  background: var(--color-danger);
+  color: white;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xl);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+
+  h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: var(--gap-md);
+  padding-top: var(--spacing-lg);
+  border-top: 2px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.actionButton {
+  flex: 1;
+  min-width: 120px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  &[data-action='approve'] {
+    background: var(--color-success);
+    color: white;
+
+    &:hover {
+      background: #218838;
+    }
+  }
+
+  &[data-action='request_info'] {
+    background: var(--color-info);
+    color: white;
+
+    &:hover {
+      background: #138496;
+    }
+  }
+
+  &[data-action='reject'] {
+    background: var(--color-danger);
+    color: white;
+
+    &:hover {
+      background: #c82333;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .actionButton {
+    width: 100%;
+  }
+}
+

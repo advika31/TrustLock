@@ -1,0 +1,115 @@
+/**
+ * CSS Variables for TrustLock Theme
+ * Used across all components for consistent spacing, colors, and breakpoints
+ */
+
+:root {
+  // Colors
+  --color-primary: #0066cc;
+  --color-primary-dark: #0052a3;
+  --color-primary-light: #3385d6;
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  --color-info: #17a2b8;
+
+  // Neutral colors
+  --color-text: #212529;
+  --color-text-light: #6c757d;
+  --color-text-muted: #868e96;
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #e9ecef;
+  --color-border: #dee2e6;
+  --color-border-light: #e9ecef;
+
+  // Focus and accessibility
+  --color-focus: #0066cc;
+  --color-focus-ring: rgba(0, 102, 204, 0.3);
+
+  // Risk score colors
+  --color-risk-low: #28a745;
+  --color-risk-medium: #ffc107;
+  --color-risk-high: #dc3545;
+
+  // Spacing (8px base unit)
+  --spacing-xs: 0.25rem; // 4px
+  --spacing-sm: 0.5rem; // 8px
+  --spacing-md: 1rem; // 16px
+  --spacing-lg: 1.5rem; // 24px
+  --spacing-xl: 2rem; // 32px
+  --spacing-2xl: 3rem; // 48px
+  --spacing-3xl: 4rem; // 64px
+
+  // Container
+  --container-max-width: 1200px;
+  --container-padding: var(--spacing-md);
+
+  // Gap (for grid/flex)
+  --gap-sm: var(--spacing-sm);
+  --gap-md: var(--spacing-md);
+  --gap-lg: var(--spacing-lg);
+  --gap-xl: var(--spacing-xl);
+
+  // Border radius
+  --radius-sm: 0.25rem; // 4px
+  --radius-md: 0.5rem; // 8px
+  --radius-lg: 0.75rem; // 12px
+  --radius-xl: 1rem; // 16px
+  --radius-full: 9999px;
+
+  // Typography
+  --font-size-xs: 0.75rem; // 12px
+  --font-size-sm: 0.875rem; // 14px
+  --font-size-base: 1rem; // 16px
+  --font-size-lg: 1.125rem; // 18px
+  --font-size-xl: 1.25rem; // 20px
+  --font-size-2xl: 1.5rem; // 24px
+  --font-size-3xl: 2rem; // 32px
+
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  // Transitions
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+
+  // Z-index layers
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+
+  // Breakpoints (for JS use, CSS uses media queries)
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+// Dark mode (optional, for future enhancement)
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #f8f9fa;
+    --color-text-light: #adb5bd;
+    --color-text-muted: #868e96;
+    --color-bg: #212529;
+    --color-bg-secondary: #343a40;
+    --color-bg-tertiary: #495057;
+    --color-border: #495057;
+    --color-border-light: #6c757d;
+  }
+}
+
