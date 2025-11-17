@@ -73,16 +73,19 @@
 
   &[data-type='id_front'],
   &[data-type='id_back'] {
+    /* TODO: Replace hard-coded token with semantic tokens (e.g. --color-bg-muted / --color-info) */
     background: #e3f2fd;
     color: #1976d2;
   }
 
   &[data-type='selfie'] {
+    /* TODO: Replace with semantic tokens (e.g. --color-bg-soft-pink / --color-secondary) */
     background: #f3e5f5;
     color: #7b1fa2;
   }
 
   &[data-type='address_proof'] {
+    /* TODO: Replace with semantic tokens (e.g. --color-bg-muted / --color-success) */
     background: #e8f5e9;
     color: #388e3c;
   }

@@ -35,26 +35,31 @@ export default function SsiPage() {
         <p>{t('onboarding.ssi.consentBody')}</p>
       </header>
       <div className={styles.columns}>
-        <article>
+        <article className={styles.article}>
           <h2>{t('onboarding.ssi.consentTitle')}</h2>
-          <ul>
+          <ul className={styles.list}>
             {ATTRIBUTES.map((attr) => (
-              <li key={attr.label}>
+              <li key={attr.label} className={styles.listItem}>
                 <span>{attr.label}</span>
                 <strong>{attr.value}</strong>
               </li>
             ))}
           </ul>
-          <button type="button" onClick={connectWallet} disabled={connected}>
+          <button
+            type="button"
+            onClick={connectWallet}
+            disabled={connected}
+            className={styles.button}
+          >
             {connected ? 'Wallet connected' : t('onboarding.ssi.connect')}
           </button>
         </article>
-        <article>
+        <article className={styles.article}>
           <h2>Consent log</h2>
-          <ol>
-            <li>Request created → TrustLock wants VC #KYC-basic</li>
-            <li>Scope: name, dob, address, doc #</li>
-            <li>Status: {consentGiven ? 'Shared' : 'Pending user consent'}</li>
+          <ol className={styles.list}>
+            <li className={styles.listItem}>Request created → TrustLock wants VC #KYC-basic</li>
+            <li className={styles.listItem}>Scope: name, dob, address, doc #</li>
+            <li className={styles.listItem}>Status: {consentGiven ? 'Shared' : 'Pending user consent'}</li>
           </ol>
           <button
             type="button"

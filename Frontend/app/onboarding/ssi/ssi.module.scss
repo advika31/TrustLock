@@ -10,7 +10,7 @@
   gap: 1rem;
 }
 
-article {
+.article {
   background: #fff;
   border-radius: var(--radius-2xl);
   padding: 1.5rem;
@@ -18,25 +18,26 @@ article {
   box-shadow: var(--shadow-sm);
 }
 
-ul,
-ol {
+.list {
   margin: 1rem 0;
   padding-left: 1.2rem;
 }
 
-li {
+.listItem {
   margin-bottom: 0.4rem;
 }
 
-button {
+.button {
   border-radius: var(--radius-full);
   border: 1px solid rgba(15, 23, 42, 0.2);
   padding: 0.65rem 1.25rem;
   font-weight: 600;
+  /* TODO: Use semantic token for button background */
   background: #fff;
 }
 
 .primary {
+  /* TODO: Replace with --brand-gradient and --on-primary */
   background: linear-gradient(120deg, #ec4899, #8b5cf6);
   color: #fff;
   border: none;

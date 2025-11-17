@@ -1,6 +1,6 @@
 <svg width="600" height="360" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .box { fill: #fdf2f8; stroke: #ec4899; stroke-width: 2; rx: 12; }
+    .box { fill: #fdf2f8; stroke: #ff4d8b; stroke-width: 2; rx: 12; }
     .title { font: bold 14px sans-serif; fill: #111827; }
     .body { font: 12px sans-serif; fill: #475467; }
     .arrow { stroke: #475467; stroke-width: 2; marker-end: url(#arrowhead); }

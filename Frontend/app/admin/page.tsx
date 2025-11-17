@@ -32,7 +32,7 @@ export default function AdminPage() {
 
   return (
     <section className={styles.wrapper}>
-      <article>
+      <article className={styles.article}>
         <h2>Risk thresholds</h2>
         <div className={styles.grid}>
           <label>
@@ -41,6 +41,7 @@ export default function AdminPage() {
               type="number"
               value={settings.thresholds.low}
               onChange={(event) => handleThresholdChange('low', Number(event.target.value))}
+              className={styles.textInput}
             />
           </label>
           <label>
@@ -49,6 +50,7 @@ export default function AdminPage() {
               type="number"
               value={settings.thresholds.high}
               onChange={(event) => handleThresholdChange('high', Number(event.target.value))}
+              className={styles.textInput}
             />
           </label>
         </div>
@@ -56,7 +58,7 @@ export default function AdminPage() {
           Save thresholds
         </button>
       </article>
-      <article>
+      <article className={styles.article}>
         <h2>Model info</h2>
         <p>Current model: {settings.modelVersion}</p>
         <button type="button">Download audit export</button>

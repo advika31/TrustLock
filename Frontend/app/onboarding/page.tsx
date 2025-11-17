@@ -25,13 +25,13 @@ export default function OnboardingIndex() {
   ];
   return (
     <section className={styles.wrapper}>
-      <header>
+      <header className={styles.header}>
         <p>{t('onboarding.title')}</p>
         <h1>3 guided experiences</h1>
       </header>
       <div className={styles.grid}>
         {flows.map((flow) => (
-          <article key={flow.href}>
+          <article key={flow.href} className={styles.gridArticle}>
             <h2>{flow.title}</h2>
             <p>{flow.body}</p>
             <Link href={flow.href}>Launch flow →</Link>

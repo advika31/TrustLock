@@ -32,7 +32,7 @@ export default function Layout({ children }: LayoutProps) {
           <Link href="/">TrustLock</Link>
           <p>{t('app.tagline')}</p>
         </div>
-        <nav aria-label="Primary">
+        <nav className={styles.nav} aria-label="Primary">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}

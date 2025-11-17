@@ -8,6 +8,7 @@
   border-radius: var(--radius-xl);
   border: 2px solid rgba(236, 72, 153, 0.3);
   overflow: hidden;
+  /* TODO: Use semantic token (e.g. --color-surface or dark surface) instead of hard hex */
   background: #050d1a;
 }
 
@@ -79,6 +80,7 @@
 }
 
 .primary {
+  /* TODO: Replace with --brand-gradient or --accent-gradient */
   background: linear-gradient(120deg, #ec4899, #8b5cf6);
   color: #fff;
   flex: 1;

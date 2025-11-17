@@ -12,26 +12,25 @@
   gap: 0.5rem;
 }
 
-table {
+.table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th,
-td {
+.tableCell {
   padding: 0.75rem;
   border-bottom: 1px solid rgba(226, 232, 240, 0.7);
 }
 
-span[data-risk='high'] {
+.riskHigh {
   color: var(--color-risk-high);
 }
 
-span[data-risk='medium'] {
+.riskMedium {
   color: var(--color-risk-medium);
 }
 
-span[data-risk='low'] {
+.riskLow {
   color: var(--color-risk-low);
 }
 

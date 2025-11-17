@@ -4,7 +4,12 @@
   gap: 1.5rem;
 }
 
-header p {
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.header p {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-size: 0.8rem;
@@ -17,7 +22,7 @@ header p {
   gap: 1.25rem;
 }
 
-.grid article {
+.gridArticle {
   background: #fff;
   border-radius: var(--radius-xl);
   border: 1px solid rgba(226, 232, 240, 0.9);
@@ -29,7 +34,7 @@ header p {
   box-shadow: var(--shadow-sm);
 }
 
-.grid a {
+.gridArticle a {
   font-weight: 600;
 }
 

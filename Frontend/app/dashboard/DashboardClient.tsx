@@ -68,10 +68,10 @@ export default function DashboardClient() {
       {loading ? (
         <p>Loading…</p>
       ) : (
-        <table>
+        <table className={styles.table}>
           <thead>
             <tr>
-              <th>
+              <th className={styles.tableCell}>
                 <input
                   type="checkbox"
                   aria-label="Select all"
@@ -81,16 +81,16 @@ export default function DashboardClient() {
                   }
                 />
               </th>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Risk</th>
-              <th>Created</th>
+              <th className={styles.tableCell}>Name</th>
+              <th className={styles.tableCell}>Status</th>
+              <th className={styles.tableCell}>Risk</th>
+              <th className={styles.tableCell}>Created</th>
             </tr>
           </thead>
           <tbody>
             {items.map((item) => (
               <tr key={item.application_id}>
-                <td>
+                <td className={styles.tableCell}>
                   <input
                     type="checkbox"
                     checked={selected.includes(item.application_id)}
@@ -103,12 +103,16 @@ export default function DashboardClient() {
                     }}
                   />
                 </td>
-                <td>{item.name}</td>
-                <td>{item.status}</td>
-                <td>
-                  <span data-risk={item.drpa_level}>{item.risk_score}</span>
+                <td className={styles.tableCell}>{item.name}</td>
+                <td className={styles.tableCell}>{item.status}</td>
+                <td className={styles.tableCell}>
+                  <span className={
+                    item.drpa_level === 'high' ? styles.riskHigh :
+                    item.drpa_level === 'medium' ? styles.riskMedium :
+                    styles.riskLow
+                  }>{item.risk_score}</span>
                 </td>
-                <td>{new Date(item.created_at).toLocaleString()}</td>
+                <td className={styles.tableCell}>{new Date(item.created_at).toLocaleString()}</td>
               </tr>
             ))}
           </tbody>

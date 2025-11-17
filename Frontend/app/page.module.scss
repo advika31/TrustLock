@@ -8,6 +8,7 @@
 }
 
 .hero {
+  /* TODO: Replace hard-coded gradients with semantic tokens (e.g. --brand-gradient / --accent-gradient) */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
@@ -56,6 +57,7 @@
 }
 
 .primary {
+  /* TODO: Use --brand-gradient and --on-primary */
   background: linear-gradient(120deg, #ec4899, #8b5cf6);
   color: #fff;
 }

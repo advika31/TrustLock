@@ -1,0 +1,122 @@
+:root {
+  /* --- Brand (primary = modern warm-pink) --- */
+  --color-primary: #ff4d8b;         /* vivid warm pink - main CTA */
+  --color-primary-dark: #e03674;    /* for hover / active */
+  --color-primary-light: #ffd6e6;   /* subtle backgrounds / badges */
+
+  /* --- Secondary / Accent (calm indigo for trust) --- */
+  --color-secondary: #4f46e5;       /* indigo - for links, focus */
+  --color-secondary-2: #6366f1;     /* secondary variant */
+
+  /* --- Semantic surfaces --- */
+  --color-surface: #ffffff;         /* main page background */
+  --color-card: #fcfdff;            /* slightly off-white for cards */
+  --color-glass: rgba(255,255,255,0.6); /* subtle glass layer for overlays */
+
+  /* --- On-surface text colors (foregrounds) --- */
+  --color-on-surface: #071124;      /* very dark blue for primary text */
+  --color-on-surface-muted: #4b5563; /* secondary/muted text */
+  --color-on-surface-muted-2: #6b7280;
+
+  /* --- Neutral backgrounds --- */
+  --color-bg-muted: #f7f9fc;        /* large soft panels */
+  --color-bg-soft-pink: #fff4f8;    /* soft pink tint for highlights */
+
+  /* --- Borders & dividers --- */
+  --color-border: #e6ecf8;
+  --color-border-2: #eef2ff;
+
+  /* --- Success / Warning / Danger / Info --- */
+  --color-success: #059669;         /* accessible green */
+  --color-warning: #d97706;         /* amber/darker for visibility */
+  --color-danger: #b91c1c;          /* vivid red (adjusted for accessible contrast) */
+  --color-info: #0284c7;            /* deeper cyan/blue */
+
+  /* --- Risk scale (visual tokens) --- */
+  --color-risk-low: var(--color-success);
+  --color-risk-medium: #f59e0b;
+  --color-risk-high: var(--color-danger);
+
+  /* --- Focus / accessibility --- */
+  --color-focus: var(--color-secondary);
+  --color-focus-ring: rgba(79, 70, 229, 0.18); /* subtle indigo ring */
+
+  /* --- Toast / modal backdrop --- */
+  --toast-bg: rgba(8, 15, 28, 0.96);
+  --backdrop: rgba(9, 12, 20, 0.6);
+
+  /* --- Brand gradients (hero / CTA subtle) --- */
+  --brand-gradient: linear-gradient(135deg, #ff4d8b 0%, #ff9fbf 40%, #7c5cff 100%);
+  --accent-gradient: linear-gradient(90deg, #7c5cff 0%, #4f46e5 50%, #ff6b98 100%);
+
+  /* --- On-brand foregrounds --- */
+  /* Use an accessible foreground for primary CTA (dark copy over pink) */
+  --on-primary: #071124;
+  --on-secondary: #ffffff;
+
+  /* --- Utility --- */
+  --glass-border: rgba(255,255,255,0.2);
+  --shadow-soft: 0 6px 18px rgba(9, 12, 20, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #071124;        /* deep navy */
+    --color-card: #0b1b2b;           /* card surface */
+    --color-glass: rgba(11,27,43,0.6);
+
+    --color-on-surface: #e6eef8;     /* light text */
+    --color-on-surface-muted: #9aa6b2;
+
+    --color-border: rgba(255,255,255,0.06);
+    --color-border-2: rgba(255,255,255,0.04);
+
+    --color-primary-light: #52293a;
+    --color-primary: #ff6b98;        /* slightly brighter in dark mode */
+    --color-primary-dark: #e03e76;
+
+    --brand-gradient: linear-gradient(135deg, #ff6b98 0%, #8b70ff 60%);
+    --accent-gradient: linear-gradient(90deg, #8b70ff 0%, #4f46e5 50%, #ff6b98 100%);
+
+    --toast-bg: rgba(2,6,23,0.9);
+    --backdrop: rgba(0,0,0,0.6);
+  }
+}
+
+/* Example CSS snippets using semantic tokens */
+
+/* Primary CTA */
+.btn-primary {
+  background: var(--brand-gradient);
+  color: var(--on-primary);
+  border-radius: 12px;
+  padding: 0.625rem 1rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary:focus { outline: 3px solid var(--color-focus-ring); outline-offset: 2px; }
+
+/* Card */
+.card {
+  background: var(--color-card);
+  color: var(--color-on-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Risk badge */
+.badge-risk-high {
+  background: linear-gradient(90deg, rgba(220,38,38,0.1), rgba(220,38,38,0.02));
+  color: var(--color-danger);
+  border: 1px solid rgba(220,38,38,0.12);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* TODO: Refactor components to reference these semantic tokens
+   - Example: replace direct hex uses of #ec4899 or legacy --color-primary in component styles
+   - TODOs should be added inside individual component .module.scss files */

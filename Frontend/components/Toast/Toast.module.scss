@@ -1,7 +1,3 @@
-:root {
-  --toast-bg: #101828;
-}
-
 .toastViewport {
   position: fixed;
   bottom: 1.5rem;
@@ -36,18 +32,22 @@
 }
 
 .toast[data-variant='success'] {
+  /* TODO: Use semantic tokens --color-success or a success gradient */
   background: linear-gradient(135deg, #0f9d58, #34a853);
 }
 
 .toast[data-variant='info'] {
+  /* TODO: Use semantic tokens --color-info or --accent-gradient */
   background: linear-gradient(135deg, #4f46e5, #6366f1);
 }
 
 .toast[data-variant='warning'] {
+  /* TODO: Use semantic token --color-warning */
   background: linear-gradient(135deg, #f97316, #fb923c);
 }
 
 .toast[data-variant='error'] {
+  /* TODO: Use semantic token --color-danger */
   background: linear-gradient(135deg, #dc2626, #ef4444);
 }
 

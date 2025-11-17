@@ -5,6 +5,7 @@
   flex-direction: column;
   gap: var(--gap-md);
   padding: var(--spacing-lg);
+  /* TODO: Replace hard-coded gradient with semantic tokens (e.g. --bg-muted, --brand-gradient) */
   background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);

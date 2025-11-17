@@ -14,7 +14,7 @@ export default function BranchPage() {
         <p>Simulate kiosk and queue-less silent onboarding.</p>
       </header>
       <div className={styles.grid}>
-        <article>
+        <article className={styles.article}>
           <h2>IoT Sensors</h2>
           <p>Ambient light</p>
           <input
@@ -23,10 +23,11 @@ export default function BranchPage() {
             max={80}
             value={sensor}
             onChange={(event) => setSensor(Number(event.target.value))}
+            className={styles.rangeInput}
           />
           <span>{sensor} lux</span>
         </article>
-        <article>
+        <article className={styles.article}>
           <h2>Silent Mode</h2>
           <label>
             <input

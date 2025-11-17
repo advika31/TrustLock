@@ -1,4 +1,5 @@
-﻿
+﻿/* TODO: Replace hard-coded hex colors and gradients with semantic tokens from `styles/theme.css` */
+
 .shell {
   min-height: 100vh;
   display: flex;
@@ -38,13 +39,13 @@
   color: var(--color-text-light);
 }
 
-nav {
+.nav {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-nav a {
+.nav a {
   padding: 0.4rem 0.85rem;
   border-radius: var(--radius-full);
   font-weight: 600;
@@ -90,7 +91,7 @@ nav a {
     align-items: flex-start;
   }
 
-  nav {
+  .nav {
     width: 100%;
     justify-content: space-between;
   }
