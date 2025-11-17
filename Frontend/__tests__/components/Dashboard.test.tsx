@@ -1,71 +1,76 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DashboardPage from '@/app/dashboard/page';
-import * as api from '@/lib/api';
+import * as api from '@/services/api';
 
-jest.mock('@/lib/api');
+jest.mock('@/services/api');
+jest.mock('@/components/Toast/ToastProvider', () => ({
+  useToast: () => ({ pushToast: jest.fn() }),
+}));
 
 describe('Dashboard', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('renders compliance list', async () => {
-    const mockListApplications = api.listApplications as jest.Mock;
-    mockListApplications.mockResolvedValueOnce([
-      {
-        application_id: 'app_001',
-        applicant_name: 'John Doe',
-        status: 'flagged',
-        risk_score: 0.65,
-        last_event_timestamp: new Date().toISOString(),
-        created_at: new Date().toISOString(),
-      },
-    ]);
+  it('renders flagged queue after login', async () => {
+    const user = userEvent.setup();
+    const mockGetReviewQueue = api.getReviewQueue as jest.Mock;
+    mockGetReviewQueue.mockResolvedValueOnce({
+      applications: [
+        {
+          application_id: 'app_001',
+          name: 'John Doe',
+          status: 'flagged',
+          risk_score: 0.65,
+          drpa_level: 'high',
+          created_at: new Date().toISOString(),
+        },
+      ],
+    });
 
     render(<DashboardPage />);
+
+    await user.click(screen.getByRole('button', { name: /enter demo mode/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/john doe/i)).toBeInTheDocument();
     });
   });
 
-  it('opens modal when application clicked', async () => {
+  it('performs bulk action on selected cases', async () => {
     const user = userEvent.setup();
-    const mockListApplications = api.listApplications as jest.Mock;
-    const mockGetApplication = api.getApplication as jest.Mock;
+    const mockGetReviewQueue = api.getReviewQueue as jest.Mock;
+    const mockActionCase = api.actionCase as jest.Mock;
 
-    mockListApplications.mockResolvedValueOnce([
-      {
-        application_id: 'app_001',
-        applicant_name: 'John Doe',
-        status: 'flagged',
-        risk_score: 0.65,
-        last_event_timestamp: new Date().toISOString(),
-        created_at: new Date().toISOString(),
-      },
-    ]);
-
-    mockGetApplication.mockResolvedValueOnce({
-      application_id: 'app_001',
-      status: 'flagged',
-      documents: [],
-      audit_log: [],
+    mockGetReviewQueue.mockResolvedValue({
+      applications: [
+        {
+          application_id: 'app_001',
+          name: 'John Doe',
+          status: 'flagged',
+          risk_score: 0.65,
+          drpa_level: 'high',
+          created_at: new Date().toISOString(),
+        },
+      ],
     });
+    mockActionCase.mockResolvedValue({});
 
     render(<DashboardPage />);
+
+    await user.click(screen.getByRole('button', { name: /enter demo mode/i }));
 
     await waitFor(() => {
       expect(screen.getByText(/john doe/i)).toBeInTheDocument();
     });
 
-    const item = screen.getByText(/john doe/i).closest('[role="button"]');
-    if (item) {
-      await user.click(item);
-    }
+    const checkbox = screen.getAllByRole('checkbox')[1];
+    await user.click(checkbox);
+    await user.click(screen.getByRole('button', { name: /approve/i }));
 
     await waitFor(() => {
-      expect(mockGetApplication).toHaveBeenCalledWith('app_001');
+      expect(mockActionCase).toHaveBeenCalledWith('app_001', 'approve');
     });
   });
 });

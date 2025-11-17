@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.xai {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: 1.25rem;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.actions button {
+  border-radius: var(--radius-full);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+

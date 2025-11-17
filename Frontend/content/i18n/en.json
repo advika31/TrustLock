@@ -1,0 +1,118 @@
+{
+  "app": {
+    "name": "TrustLock",
+    "tagline": "Responsible identity verification for every channel."
+  },
+  "nav": {
+    "landing": "Overview",
+    "onboarding": "Onboarding",
+    "dashboard": "Compliance",
+    "admin": "Admin",
+    "demo": "Playground",
+    "docs": "Docs"
+  },
+  "common": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "offline": "Offline mode",
+    "online": "Back online",
+    "voiceOn": "Voice guidance on",
+    "voiceOff": "Voice guidance off",
+    "language": "Language",
+    "upload": "Upload",
+    "capture": "Capture",
+    "status": "Status",
+    "risk": "Risk",
+    "actions": "Actions",
+    "approve": "Approve",
+    "reject": "Reject",
+    "requestInfo": "Request Info"
+  },
+  "landing": {
+    "heroTitle": "Explainable onboarding for modern trust teams.",
+    "heroBody": "TrustLock unifies document automation, voice assistance, SSI, and monitoring into a single, human-crafted workspace.",
+    "ctaCompliance": "For Compliance",
+    "ctaAdmin": "For Admins",
+    "ctaOnboarding": "Start Onboarding",
+    "sectionTitle": "Why teams choose TrustLock",
+    "featureDoc": "Guided capture with auto-enhance",
+    "featureVoice": "Multi-lingual voice coach",
+    "featureXai": "XAI-first decisioning",
+    "featureMonitoring": "Continuous DRPA monitoring"
+  },
+  "onboarding": {
+    "title": "Choose onboarding path",
+    "docFlow": "Document Upload",
+    "ssiFlow": "SSI Wallet",
+    "branchFlow": "Branch & IoT",
+    "docIntro": "Scan ID, selfie, and proof of address with live overlays and offline queue.",
+    "ssiIntro": "Simulate a verifiable credential share with full consent logging.",
+    "branchIntro": "Demonstrate in-branch capture with IoT sensors and silent KYC.",
+    "stepSelfie": "Selfie & Liveness",
+    "stepIdFront": "ID Front",
+    "stepIdBack": "ID Back",
+    "stepAddress": "Address Proof",
+    "stepConfirm": "Confirm",
+    "stepSubmit": "Submit",
+    "guidance": {
+      "centerFace": "Center your face, hold steady, and wait for the blink prompt.",
+      "moveCloser": "Move the document closer until the edges glow.",
+      "tooDark": "Lighting is low—enable flash or move near a window."
+    },
+    "ssi": {
+      "connect": "Connect Wallet",
+      "consentTitle": "Share requested attributes",
+      "consentBody": "Review the credential preview, confirm scope, and sign to continue."
+    }
+  },
+  "status": {
+    "title": "Application status",
+    "riskLabel": "Risk score",
+    "xaiTitle": "Decision trace",
+    "auditTrail": "Audit Trail",
+    "voiceHint": "Need help? Enable voice instructions."
+  },
+  "dashboard": {
+    "loginTitle": "Officer sign-in",
+    "listTitle": "Flagged & monitoring queue",
+    "filters": {
+      "status": "Status",
+      "risk": "Risk Level",
+      "search": "Search name or ID"
+    },
+    "actions": {
+      "bulkApprove": "Approve Selected",
+      "bulkReview": "Request Review"
+    }
+  },
+  "case": {
+    "title": "Case detail",
+    "documents": "Documents",
+    "ocr": "OCR Output",
+    "faceMatch": "Face match",
+    "xai": "Decision insight",
+    "audit": "Audit log",
+    "decisionNote": "Decision note"
+  },
+  "admin": {
+    "title": "Controls & thresholds",
+    "riskThreshold": "Risk thresholds",
+    "modelVersion": "Model version",
+    "sanctions": "Sanctions upload",
+    "webhooks": "Webhook URL",
+    "downloadAudit": "Download audit export"
+  },
+  "demo": {
+    "title": "Interactive monitoring",
+    "timeline": "Monitoring timeline",
+    "simulate": "Simulate event",
+    "microVerification": "Trigger micro-verification",
+    "lowRisk": "Instant approval",
+    "flagged": "Flagged with sanctions"
+  }
+}
+
+

@@ -1,72 +1,75 @@
+'use client';
+
 import Link from 'next/link';
+import { useLocale } from '@/providers/LocaleProvider';
 import styles from './page.module.scss';
 
-/**
- * Landing page with Get Started CTA
- * Responsive design with clear call-to-action
- */
-export default function HomePage() {
+const featureIcons = ['📄', '🗣️', '🧠', '📡'];
+
+export default function LandingPage() {
+  const { t } = useLocale();
+  const features = [
+    { title: t('landing.featureDoc'), body: 'Auto-crop, deskew, and brightness normalization keep docs legible.' },
+    { title: t('landing.featureVoice'), body: 'Built-in TTS instructions and low-literacy textual guide.' },
+    { title: t('landing.featureXai'), body: 'Every decision comes with factor bars and printable audit notes.' },
+    { title: t('landing.featureMonitoring'), body: 'Mock SSE feed showcases DRPA event bursts in real time.' },
+  ];
+
   return (
     <div className={styles.landing}>
-      <div className={styles.hero}>
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <h1 className={styles.title}>
-              TrustLock
-              <span className={styles.subtitle}>Secure KYC Verification</span>
-            </h1>
-            <p className={styles.description}>
-              Verify identities with confidence using explainable AI. Our platform
-              combines document OCR, face matching, and risk assessment to provide
-              transparent, auditable KYC decisions.
-            </p>
-            <div className={styles.ctaGroup}>
-              <Link href="/onboard" className={styles.ctaPrimary}>
-                Get Started
-              </Link>
-              <Link href="/docs" className={styles.ctaSecondary}>
-                Learn More
-              </Link>
-            </div>
+      <section className={styles.hero}>
+        <div>
+          <p className={styles.pill}>PWA · Offline · Voice ready</p>
+          <h1>{t('landing.heroTitle')}</h1>
+          <p>{t('landing.heroBody')}</p>
+          <div className={styles.ctas}>
+            <Link href="/onboarding" className={styles.primary}>
+              {t('landing.ctaOnboarding')}
+            </Link>
+            <Link href="/dashboard" className={styles.secondary}>
+              {t('landing.ctaCompliance')}
+            </Link>
+            <Link href="/admin" className={styles.secondaryMuted}>
+              {t('landing.ctaAdmin')}
+            </Link>
           </div>
         </div>
-      </div>
-
-      <div className={styles.features}>
-        <div className={styles.container}>
-          <h2 className={styles.featuresTitle}>Key Features</h2>
-          <div className={styles.featuresGrid}>
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>📄</div>
-              <h3 className={styles.featureTitle}>Document OCR</h3>
-              <p className={styles.featureDescription}>
-                Extract and verify information from ID documents with high accuracy.
-              </p>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>👤</div>
-              <h3 className={styles.featureTitle}>Face Matching</h3>
-              <p className={styles.featureDescription}>
-                Compare ID photos with selfies using advanced biometric verification.
-              </p>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>🤖</div>
-              <h3 className={styles.featureTitle}>Explainable AI</h3>
-              <p className={styles.featureDescription}>
-                Transparent decision traces showing how risk scores are calculated.
-              </p>
-            </div>
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>🔒</div>
-              <h3 className={styles.featureTitle}>Compliance Dashboard</h3>
-              <p className={styles.featureDescription}>
-                Review and manage applications with comprehensive audit trails.
-              </p>
-            </div>
-          </div>
+        <div className={styles.heroCard}>
+          <h2>{t('demo.title')}</h2>
+          <ul>
+            <li>✅ {t('demo.lowRisk')}</li>
+            <li>🚨 {t('demo.flagged')}</li>
+            <li>📡 DRPA heartbeat &amp; SSE feed</li>
+          </ul>
+          <Link href="/demo">Launch Playground →</Link>
         </div>
-      </div>
+      </section>
+      <section>
+        <h2>{t('landing.sectionTitle')}</h2>
+        <div className={styles.grid}>
+          {features.map((feature, index) => (
+            <article key={feature.title}>
+              <span aria-hidden="true" className={styles.icon}>
+                {featureIcons[index]}
+              </span>
+              <h3>{feature.title}</h3>
+              <p>{feature.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className={styles.quickLinks}>
+        <div>
+          <h3>README</h3>
+          <p>Integration guide, API contracts, and accessibility notes.</p>
+          <a href="/README.md">Open README</a>
+        </div>
+        <div>
+          <h3>Docs & Integration</h3>
+          <p>Architecture diagram + Person A/B/C/D hand-off instructions.</p>
+          <a href="/docs/integration">Open docs</a>
+        </div>
+      </section>
     </div>
   );
 }

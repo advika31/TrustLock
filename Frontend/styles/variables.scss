@@ -5,33 +5,33 @@
 
 :root {
   // Colors
-  --color-primary: #0066cc;
-  --color-primary-dark: #0052a3;
-  --color-primary-light: #3385d6;
-  --color-secondary: #6c757d;
-  --color-success: #28a745;
-  --color-warning: #ffc107;
-  --color-danger: #dc3545;
-  --color-info: #17a2b8;
+  --color-primary: #ec4899;
+  --color-primary-dark: #db2777;
+  --color-primary-light: #f472b6;
+  --color-secondary: #6366f1;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #0ea5e9;
 
   // Neutral colors
-  --color-text: #212529;
-  --color-text-light: #6c757d;
-  --color-text-muted: #868e96;
+  --color-text: #0f172a;
+  --color-text-light: #475467;
+  --color-text-muted: #94a3b8;
   --color-bg: #ffffff;
-  --color-bg-secondary: #f8f9fa;
-  --color-bg-tertiary: #e9ecef;
-  --color-border: #dee2e6;
-  --color-border-light: #e9ecef;
+  --color-bg-secondary: #fdf2f8;
+  --color-bg-tertiary: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-light: #f8fafc;
 
   // Focus and accessibility
-  --color-focus: #0066cc;
-  --color-focus-ring: rgba(0, 102, 204, 0.3);
+  --color-focus: #6366f1;
+  --color-focus-ring: rgba(99, 102, 241, 0.3);
 
   // Risk score colors
-  --color-risk-low: #28a745;
-  --color-risk-medium: #ffc107;
-  --color-risk-high: #dc3545;
+  --color-risk-low: #10b981;
+  --color-risk-medium: #f59e0b;
+  --color-risk-high: #ef4444;
 
   // Spacing (8px base unit)
   --spacing-xs: 0.25rem; // 4px
@@ -57,6 +57,7 @@
   --radius-md: 0.5rem; // 8px
   --radius-lg: 0.75rem; // 12px
   --radius-xl: 1rem; // 16px
+  --radius-2xl: 1.5rem; // 24px
   --radius-full: 9999px;
 
   // Typography

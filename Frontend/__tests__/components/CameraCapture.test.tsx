@@ -2,80 +2,71 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CameraCapture from '@/components/CameraCapture';
 
-// Mock getUserMedia
-Object.defineProperty(global.navigator, 'mediaDevices', {
-  value: {
-    getUserMedia: jest.fn(() =>
-      Promise.resolve({
-        getTracks: () => [
-          {
-            stop: jest.fn(),
-          },
-        ],
-      } as MediaStream)
-    ),
-  },
-  writable: true,
-});
+jest.mock('@/hooks/useSpeechGuidance', () => ({
+  useSpeechGuidance: jest.fn(),
+}));
 
-// Mock FileReader
-global.FileReader = class FileReader {
-  result: string | null = null;
-  onload: ((event: ProgressEvent<FileReader>) => void) | null = null;
-  onerror: ((event: ProgressEvent<FileReader>) => void) | null = null;
+const mockCapture = jest.fn();
+const mockState = {
+  hasPermission: true,
+};
 
-  readAsDataURL() {
-    setTimeout(() => {
-      this.result = 'data:image/jpeg;base64,mock';
-      if (this.onload) {
-        this.onload({} as ProgressEvent<FileReader>);
-      }
-    }, 0);
-  }
-} as any;
+jest.mock('@/hooks/useCameraCapture', () => ({
+  useCameraCapture: () => ({
+    videoRef: { current: null },
+    canvasRef: { current: null },
+    capture: mockCapture,
+    guidance: 'Hold steady',
+    hasPermission: mockState.hasPermission,
+    lightScore: 0.5,
+    blurScore: 120,
+    edgesDetected: true,
+  }),
+}));
 
 describe('CameraCapture', () => {
   const mockOnCapture = jest.fn();
-  const mockOnError = jest.fn();
 
   beforeEach(() => {
     jest.clearAllMocks();
+    mockState.hasPermission = true;
+    mockCapture.mockResolvedValue({
+      file: new File([''], 'test.jpg', { type: 'image/jpeg' }),
+      base64: 'data:image/jpeg;base64,mock',
+      metadata: {
+        width: 640,
+        height: 480,
+        lightScore: 0.5,
+        blurScore: 120,
+        edgesDetected: true,
+      },
+    });
+    // Stub arrayBuffer used during uploads
+    File.prototype.arrayBuffer = jest.fn().mockResolvedValue(new ArrayBuffer(8));
   });
 
-  it('renders camera capture interface', () => {
-    render(<CameraCapture onCapture={mockOnCapture} />);
-    expect(screen.getByLabelText(/camera preview/i)).toBeInTheDocument();
-  });
-
-  it('shows sample image button in mock mode', () => {
-    process.env.NEXT_PUBLIC_MOCK = 'true';
-    render(<CameraCapture onCapture={mockOnCapture} />);
-    expect(screen.getByLabelText(/use sample image/i)).toBeInTheDocument();
+  it('renders capture and upload controls', () => {
+    render(<CameraCapture documentType="selfie" onCapture={mockOnCapture} />);
+    expect(screen.getByRole('button', { name: /capture/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/upload/i)).toBeInTheDocument();
   });
 
   it('handles file upload fallback', async () => {
     const user = userEvent.setup();
-    const file = new File(['test'], 'test.jpg', { type: 'image/jpeg' });
+    render(<CameraCapture documentType="id_front" onCapture={mockOnCapture} />);
 
-    render(<CameraCapture onCapture={mockOnCapture} />);
-
-    const fileInput = screen.getByLabelText(/upload document image/i);
-    await user.upload(fileInput, file);
+    const fileInput = screen.getByLabelText(/upload/i);
+    await user.upload(fileInput, new File(['hello'], 'front.jpg', { type: 'image/jpeg' }));
 
     await waitFor(() => {
       expect(mockOnCapture).toHaveBeenCalled();
     });
   });
 
-  it('shows error message when camera permission denied', () => {
-    (navigator.mediaDevices.getUserMedia as jest.Mock).mockRejectedValueOnce(
-      new Error('Permission denied')
-    );
-
-    render(<CameraCapture onCapture={mockOnCapture} onError={mockOnError} />);
-
-    // Error should be shown after permission denial
-    // Note: This test may need adjustment based on actual error handling
+  it('shows permission warning when camera is blocked', () => {
+    mockState.hasPermission = false;
+    render(<CameraCapture documentType="selfie" onCapture={mockOnCapture} />);
+    expect(screen.getByText(/permission denied/i)).toBeInTheDocument();
   });
 });
 

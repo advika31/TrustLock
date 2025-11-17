@@ -1,0 +1,38 @@
+.login,
+.wrapper {
+  background: #fff;
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-md);
+}
+
+.bulk {
+  display: flex;
+  gap: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+span[data-risk='high'] {
+  color: var(--color-risk-high);
+}
+
+span[data-risk='medium'] {
+  color: var(--color-risk-medium);
+}
+
+span[data-risk='low'] {
+  color: var(--color-risk-low);
+}
+
+

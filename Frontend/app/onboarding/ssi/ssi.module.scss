@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+article {
+  background: #fff;
+  border-radius: var(--radius-2xl);
+  padding: 1.5rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-sm);
+}
+
+ul,
+ol {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+button {
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+  padding: 0.65rem 1.25rem;
+  font-weight: 600;
+  background: #fff;
+}
+
+.primary {
+  background: linear-gradient(120deg, #ec4899, #8b5cf6);
+  color: #fff;
+  border: none;
+}
+
+

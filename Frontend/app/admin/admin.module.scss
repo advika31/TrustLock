@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+article {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.grid {
+  display: flex;
+  gap: 1rem;
+}
+
+input {
+  width: 100%;
+}
+
+

@@ -1,0 +1,32 @@
+.offline {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-warning);
+  color: #0f172a;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.offline button {
+  border-radius: var(--radius-full);
+  border: none;
+  padding: 0.35rem 0.9rem;
+  font-weight: 600;
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+@media (max-width: 600px) {
+  .offline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+

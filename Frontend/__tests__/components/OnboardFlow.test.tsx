@@ -1,7 +1,10 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import OnboardPage from '@/app/onboard/page';
 import * as api from '@/lib/api';
+
+// Mock heavy child components
+jest.mock('@/components/CameraCapture', () => () => <div data-testid="camera-capture" />);
 
 // Mock the API
 jest.mock('@/lib/api');
@@ -31,7 +34,9 @@ describe('Onboard Flow', () => {
 
     const uploadButton = screen.getByText(/upload document/i).closest('button');
     if (uploadButton) {
-      await user.click(uploadButton);
+      await act(async () => {
+        await user.click(uploadButton);
+      });
     }
 
     await waitFor(() => {

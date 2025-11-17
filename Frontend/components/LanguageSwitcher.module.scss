@@ -1,0 +1,23 @@
+.switcher {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.switcher select {
+  border: none;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  appearance: none;
+  padding-right: 1rem;
+}
+
+.switcher select:focus {
+  outline: none;
+}
+
+

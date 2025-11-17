@@ -1,0 +1,118 @@
+{
+  "app": {
+    "name": "TrustLock",
+    "tagline": "Verificación responsable de identidad para cada canal."
+  },
+  "nav": {
+    "landing": "Resumen",
+    "onboarding": "Onboarding",
+    "dashboard": "Cumplimiento",
+    "admin": "Admin",
+    "demo": "Demostración",
+    "docs": "Docs"
+  },
+  "common": {
+    "getStarted": "Comenzar",
+    "learnMore": "Más información",
+    "continue": "Continuar",
+    "cancel": "Cancelar",
+    "retry": "Reintentar",
+    "offline": "Modo sin conexión",
+    "online": "De nuevo en línea",
+    "voiceOn": "Guía de voz activa",
+    "voiceOff": "Guía de voz inactiva",
+    "language": "Idioma",
+    "upload": "Subir",
+    "capture": "Capturar",
+    "status": "Estado",
+    "risk": "Riesgo",
+    "actions": "Acciones",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "requestInfo": "Solicitar info"
+  },
+  "landing": {
+    "heroTitle": "Onboarding explicable para equipos modernos.",
+    "heroBody": "TrustLock combina automatización documental, asistencia por voz, SSI y monitoreo en un solo espacio diseñado a mano.",
+    "ctaCompliance": "Para Cumplimiento",
+    "ctaAdmin": "Para Admin",
+    "ctaOnboarding": "Iniciar Onboarding",
+    "sectionTitle": "Por qué elegir TrustLock",
+    "featureDoc": "Captura guiada con auto-mejora",
+    "featureVoice": "Coach de voz multilingüe",
+    "featureXai": "Decisiones con XAI",
+    "featureMonitoring": "Monitoreo DRPA continuo"
+  },
+  "onboarding": {
+    "title": "Elige el método",
+    "docFlow": "Subida de documentos",
+    "ssiFlow": "Wallet SSI",
+    "branchFlow": "Sucursal & IoT",
+    "docIntro": "Escanee ID, selfie y comprobante con superposiciones en vivo y cola offline.",
+    "ssiIntro": "Simule compartir credenciales verificables con registro de consentimiento.",
+    "branchIntro": "Demuestre la captura en sucursal con sensores IoT y KYC silencioso.",
+    "stepSelfie": "Selfie y prueba de vida",
+    "stepIdFront": "ID anverso",
+    "stepIdBack": "ID reverso",
+    "stepAddress": "Comprobante de domicilio",
+    "stepConfirm": "Confirmar",
+    "stepSubmit": "Enviar",
+    "guidance": {
+      "centerFace": "Centre el rostro, mantenga estabilidad y espere el reto de parpadeo.",
+      "moveCloser": "Acerque el documento hasta que los bordes brillen.",
+      "tooDark": "Hay poca luz: active el flash o busque una ventana."
+    },
+    "ssi": {
+      "connect": "Conectar wallet",
+      "consentTitle": "Compartir atributos solicitados",
+      "consentBody": "Revise la credencial, confirme el alcance y firme para continuar."
+    }
+  },
+  "status": {
+    "title": "Estado de la solicitud",
+    "riskLabel": "Puntaje de riesgo",
+    "xaiTitle": "Trazabilidad de decisión",
+    "auditTrail": "Bitácora",
+    "voiceHint": "¿Necesita ayuda? Active la guía por voz."
+  },
+  "dashboard": {
+    "loginTitle": "Ingreso de oficiales",
+    "listTitle": "Cola de alertas y monitoreo",
+    "filters": {
+      "status": "Estado",
+      "risk": "Nivel de riesgo",
+      "search": "Buscar nombre o ID"
+    },
+    "actions": {
+      "bulkApprove": "Aprobar seleccionados",
+      "bulkReview": "Solicitar revisión"
+    }
+  },
+  "case": {
+    "title": "Detalle del caso",
+    "documents": "Documentos",
+    "ocr": "Resultado OCR",
+    "faceMatch": "Coincidencia facial",
+    "xai": "Explicabilidad",
+    "audit": "Registro de auditoría",
+    "decisionNote": "Nota de decisión"
+  },
+  "admin": {
+    "title": "Configuraciones críticas",
+    "riskThreshold": "Umbrales de riesgo",
+    "modelVersion": "Versión del modelo",
+    "sanctions": "Carga de listas",
+    "webhooks": "URL de webhook",
+    "downloadAudit": "Descargar auditoría"
+  },
+  "demo": {
+    "title": "Monitoreo interactivo",
+    "timeline": "Línea de tiempo",
+    "simulate": "Simular evento",
+    "microVerification": "Disparar micro-verificación",
+    "lowRisk": "Aprobación instantánea",
+    "flagged": "Marcado por sanciones"
+  }
+}
+
+

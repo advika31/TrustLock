@@ -1,0 +1,44 @@
+<svg width="600" height="360" viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .box { fill: #fdf2f8; stroke: #ec4899; stroke-width: 2; rx: 12; }
+    .title { font: bold 14px sans-serif; fill: #111827; }
+    .body { font: 12px sans-serif; fill: #475467; }
+    .arrow { stroke: #475467; stroke-width: 2; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#475467"/>
+    </marker>
+  </defs>
+  <rect x="30" y="40" width="150" height="80" class="box"/>
+  <text x="50" y="70" class="title">Client UI</text>
+  <text x="50" y="90" class="body">Next.js pages, hooks, PWA</text>
+
+  <rect x="220" y="40" width="160" height="80" class="box"/>
+  <text x="240" y="70" class="title">Services</text>
+  <text x="240" y="90" class="body">api.ts · onnx.ts · idb queue</text>
+
+  <rect x="420" y="40" width="150" height="80" class="box"/>
+  <text x="440" y="70" class="title">Mock APIs</text>
+  <text x="440" y="90" class="body">/api/mock/* routes</text>
+
+  <rect x="220" y="180" width="160" height="80" class="box"/>
+  <text x="240" y="210" class="title">Providers</text>
+  <text x="240" y="230" class="body">Locale · Voice · Offline</text>
+
+  <rect x="30" y="180" width="150" height="80" class="box"/>
+  <text x="50" y="210" class="title">Components</text>
+  <text x="50" y="230" class="body">Camera · Stepper · XAI</text>
+
+  <rect x="420" y="180" width="150" height="80" class="box"/>
+  <text x="440" y="210" class="title">Backend Stubs</text>
+  <text x="440" y="230" class="body">Orchestrator · Risk · Audit</text>
+
+  <line x1="180" y1="80" x2="220" y2="80" class="arrow"/>
+  <line x1="380" y1="80" x2="420" y2="80" class="arrow"/>
+  <line x1="110" y1="120" x2="110" y2="180" class="arrow"/>
+  <line x1="300" y1="120" x2="300" y2="180" class="arrow"/>
+  <line x1="380" y1="220" x2="420" y2="220" class="arrow"/>
+</svg>
+
+

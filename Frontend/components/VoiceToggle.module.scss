@@ -1,0 +1,29 @@
+.voiceToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  padding: 0.35rem 0.75rem;
+  background: var(--color-bg);
+  font-weight: 600;
+  color: var(--color-text);
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+
+.voiceToggle[aria-pressed='true'] {
+  background: var(--color-primary-light);
+  color: #fff;
+  border-color: transparent;
+}
+
+.voiceToggle:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.voiceToggle:hover {
+  transform: translateY(-1px);
+}
+
+
