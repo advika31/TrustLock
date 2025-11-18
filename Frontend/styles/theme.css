@@ -1,122 +1,248 @@
 :root {
-  /* --- Brand (primary = modern warm-pink) --- */
-  --color-primary: #ff4d8b;         /* vivid warm pink - main CTA */
-  --color-primary-dark: #e03674;    /* for hover / active */
-  --color-primary-light: #ffd6e6;   /* subtle backgrounds / badges */
+  /* ==================== BEHANCE-INSPIRED DARK DASHBOARD THEME ==================== */
 
-  /* --- Secondary / Accent (calm indigo for trust) --- */
-  --color-secondary: #4f46e5;       /* indigo - for links, focus */
-  --color-secondary-2: #6366f1;     /* secondary variant */
+  /* Brand accents */
+  --color-accent-1: #ff5470;           /* warm pink (primary CTA) */
+  --color-accent-2: #7a5cff;           /* purple accent */
+  --color-accent-3: #4f46e5;           /* indigo secondary */
 
-  /* --- Semantic surfaces --- */
-  --color-surface: #ffffff;         /* main page background */
-  --color-card: #fcfdff;            /* slightly off-white for cards */
-  --color-glass: rgba(255,255,255,0.6); /* subtle glass layer for overlays */
+  /* Page & surfaces (dark premium look) */
+  --bg-page: #0f1724;                  /* deep navy page background */
+  --bg-surface: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --card-bg: rgba(255,255,255,0.03);   /* translucent card */
+  --glass-bg: rgba(255,255,255,0.04);  /* glass layer */
 
-  /* --- On-surface text colors (foregrounds) --- */
-  --color-on-surface: #071124;      /* very dark blue for primary text */
-  --color-on-surface-muted: #4b5563; /* secondary/muted text */
-  --color-on-surface-muted-2: #6b7280;
+  /* Text colors */
+  --text-primary: #e6eef8;             /* soft off-white for body */
+  --text-secondary: #9fb0c8;           /* muted text */
+  --text-muted: #6f8597;               /* dimmer text */
 
-  /* --- Neutral backgrounds --- */
-  --color-bg-muted: #f7f9fc;        /* large soft panels */
-  --color-bg-soft-pink: #fff4f8;    /* soft pink tint for highlights */
+  /* Borders & dividers */
+  --border-1: rgba(255,255,255,0.06);
+  --border-2: rgba(255,255,255,0.03);
 
-  /* --- Borders & dividers --- */
-  --color-border: #e6ecf8;
-  --color-border-2: #eef2ff;
+  /* Shadows (premium depth) */
+  --shadow-1: 0 6px 24px rgba(2,6,23,0.6);
+  --shadow-2: 0 8px 30px rgba(2,6,23,0.7);
+  --shadow-soft: 0 4px 12px rgba(2,6,23,0.4);
 
-  /* --- Success / Warning / Danger / Info --- */
-  --color-success: #059669;         /* accessible green */
-  --color-warning: #d97706;         /* amber/darker for visibility */
-  --color-danger: #b91c1c;          /* vivid red (adjusted for accessible contrast) */
-  --color-info: #0284c7;            /* deeper cyan/blue */
+  /* CTA & buttons */
+  --cta-bg: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+  --cta-hover: linear-gradient(90deg, #ff6b86, #6e56ff);
+  --cta-on: #ffffff;
 
-  /* --- Risk scale (visual tokens) --- */
-  --color-risk-low: var(--color-success);
-  --color-risk-medium: #f59e0b;
-  --color-risk-high: var(--color-danger);
+  /* Risk colors (consistent scale) */
+  --risk-low: #14b8a6;                 /* teal for low risk */
+  --risk-med: #f59e0b;                 /* amber for medium */
+  --risk-high: #ff3860;                /* vivid red for high */
 
-  /* --- Focus / accessibility --- */
-  --color-focus: var(--color-secondary);
-  --color-focus-ring: rgba(79, 70, 229, 0.18); /* subtle indigo ring */
+  /* UI tokens */
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 9999px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
 
-  /* --- Toast / modal backdrop --- */
-  --toast-bg: rgba(8, 15, 28, 0.96);
-  --backdrop: rgba(9, 12, 20, 0.6);
+  /* Typography scale */
+  --font-family-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-head: "Poppins", var(--font-family-sans);
+  --type-h1: 32px;
+  --type-h2: 24px;
+  --type-h3: 20px;
+  --type-h4: 18px;
+  --type-base: 14px;
+  --type-small: 12px;
+  --type-weight-regular: 400;
+  --type-weight-medium: 500;
+  --type-weight-semibold: 600;
+  --type-weight-bold: 700;
 
-  /* --- Brand gradients (hero / CTA subtle) --- */
-  --brand-gradient: linear-gradient(135deg, #ff4d8b 0%, #ff9fbf 40%, #7c5cff 100%);
-  --accent-gradient: linear-gradient(90deg, #7c5cff 0%, #4f46e5 50%, #ff6b98 100%);
+  /* Focus & accessibility */
+  --focus-ring: rgba(125, 90, 255, 0.22);
+  --focus-visible-color: #7a5cff;
 
-  /* --- On-brand foregrounds --- */
-  /* Use an accessible foreground for primary CTA (dark copy over pink) */
-  --on-primary: #071124;
-  --on-secondary: #ffffff;
+  /* Gradients */
+  --brand-gradient: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+  --accent-gradient: linear-gradient(135deg, #7a5cff 0%, #4f46e5 100%);
+  --glass-gradient: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
 
-  /* --- Utility --- */
-  --glass-border: rgba(255,255,255,0.2);
-  --shadow-soft: 0 6px 18px rgba(9, 12, 20, 0.06);
+  /* Transitions */
+  --transition-fast: 120ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  --transition-base: 160ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  --transition-slow: 240ms cubic-bezier(0.2, 0, 0.38, 0.9);
 }
 
-@media (prefers-color-scheme: dark) {
+/* Dark mode is default; light mode fallback */
+@media (prefers-color-scheme: light) {
   :root {
-    --color-surface: #071124;        /* deep navy */
-    --color-card: #0b1b2b;           /* card surface */
-    --color-glass: rgba(11,27,43,0.6);
+    --bg-page: #f7fafc;                /* light gray page */
+    --bg-surface: #ffffff;
+    --card-bg: #ffffff;
+    --glass-bg: rgba(255,255,255,0.9);
 
-    --color-on-surface: #e6eef8;     /* light text */
-    --color-on-surface-muted: #9aa6b2;
+    --text-primary: #0f1724;
+    --text-secondary: #475569;
+    --text-muted: #6b7280;
 
-    --color-border: rgba(255,255,255,0.06);
-    --color-border-2: rgba(255,255,255,0.04);
+    --border-1: #e6eef8;
+    --border-2: #eef2ff;
 
-    --color-primary-light: #52293a;
-    --color-primary: #ff6b98;        /* slightly brighter in dark mode */
-    --color-primary-dark: #e03e76;
-
-    --brand-gradient: linear-gradient(135deg, #ff6b98 0%, #8b70ff 60%);
-    --accent-gradient: linear-gradient(90deg, #8b70ff 0%, #4f46e5 50%, #ff6b98 100%);
-
-    --toast-bg: rgba(2,6,23,0.9);
-    --backdrop: rgba(0,0,0,0.6);
+    --shadow-1: 0 6px 18px rgba(9,30,46,0.06);
+    --shadow-2: 0 8px 24px rgba(9,30,46,0.08);
+    --shadow-soft: 0 2px 8px rgba(9,30,46,0.04);
   }
 }
 
-/* Example CSS snippets using semantic tokens */
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
-/* Primary CTA */
+/* ============= COMPONENT SNIPPETS & UTILITY CLASSES ============= */
+
+/* Sidebar item active state */
+.sidebar-item-active {
+  background: var(--cta-bg);
+  color: var(--cta-on);
+  border-radius: var(--radius-pill);
+  position: relative;
+}
+
+/* KPI card with hover lift */
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  padding: var(--gap-md);
+  box-shadow: var(--shadow-1);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.kpi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-2);
+}
+
+/* Glass card (premium feel) */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+}
+
+/* Primary button (CTA) */
 .btn-primary {
-  background: var(--brand-gradient);
-  color: var(--on-primary);
-  border-radius: 12px;
-  padding: 0.625rem 1rem;
-  box-shadow: var(--shadow-soft);
-  transition: transform 160ms ease, box-shadow 160ms ease;
+  background: var(--cta-bg);
+  color: var(--cta-on);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-weight: var(--type-weight-semibold);
+  font-size: var(--type-base);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(125, 90, 255, 0.2);
+  transition: all var(--transition-base);
 }
-.btn-primary:active { transform: translateY(1px); }
-.btn-primary:focus { outline: 3px solid var(--color-focus-ring); outline-offset: 2px; }
+.btn-primary:hover {
+  background: var(--cta-hover);
+  box-shadow: 0 12px 28px rgba(125, 90, 255, 0.3);
+  transform: translateY(-2px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+.btn-primary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 
-/* Card */
-.card {
-  background: var(--color-card);
-  color: var(--color-on-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: var(--shadow-soft);
+/* Secondary button */
+.btn-secondary {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  font-weight: var(--type-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-base);
 }
+.btn-secondary:hover {
+  background: var(--glass-bg);
+  border-color: var(--color-accent-1);
+}
+.btn-secondary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Risk meter circle */
+.risk-meter {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-1);
+  position: relative;
+  overflow: hidden;
+}
+.risk-meter-low { color: var(--risk-low); }
+.risk-meter-med { color: var(--risk-med); }
+.risk-meter-high { color: var(--risk-high); }
 
 /* Risk badge */
+.badge-risk {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: 4px 8px;
+  border-radius: var(--radius-pill);
+  font-size: var(--type-small);
+  font-weight: var(--type-weight-semibold);
+}
+.badge-risk-low {
+  background: rgba(20, 184, 166, 0.1);
+  color: var(--risk-low);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+}
+.badge-risk-med {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--risk-med);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
 .badge-risk-high {
-  background: linear-gradient(90deg, rgba(220,38,38,0.1), rgba(220,38,38,0.02));
-  color: var(--color-danger);
-  border: 1px solid rgba(220,38,38,0.12);
-  padding: 0.25rem 0.5rem;
-  border-radius: 999px;
-  font-weight: 600;
+  background: rgba(255, 56, 96, 0.1);
+  color: var(--risk-high);
+  border: 1px solid rgba(255, 56, 96, 0.2);
 }
 
-/* TODO: Refactor components to reference these semantic tokens
-   - Example: replace direct hex uses of #ec4899 or legacy --color-primary in component styles
-   - TODOs should be added inside individual component .module.scss files */
+/* Table row hover effect */
+.table-row {
+  transition: background var(--transition-base), transform var(--transition-fast);
+}
+.table-row:hover {
+  background: var(--glass-bg);
+  transform: translateY(-1px);
+}
+
+/* Focus visible for all interactive elements */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* TODO: Migrate components to dark dashboard theme
+   - Review existing component .module.scss files
+   - Replace direct hex values with CSS variables (e.g., #ff5470 → var(--color-accent-1))
+   - Apply semantic color tokens (--text-primary, --card-bg, --border-1, etc.)
+   - Update shadow usage to --shadow-1, --shadow-2
+   - Test hover/focus states with new transitions
+   - Verify contrast ratios with npm run theme:check */

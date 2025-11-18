@@ -5,3 +5,4 @@ export default function CasePage({ params }: { params: { id: string } }) {
 }
 
 
+

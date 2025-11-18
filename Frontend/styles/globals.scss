@@ -1,10 +1,14 @@
 /**
  * Global Styles for TrustLock Frontend
+ * Dark-first dashboard theme inspired by modern KYC platforms
  */
 
 @import './accessible-reset';
 @import './theme.css';
 @import './variables';
+
+// Import Google Fonts (Inter + Poppins)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 // Base styles
 html {
@@ -13,11 +17,15 @@ html {
 }
 
 body {
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  line-height: var(--line-height-normal);
-  font-size: var(--font-size-base);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+  background-image: var(--bg-surface);
+  line-height: 1.6;
+  font-size: var(--type-base);
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.3px;
 }
 
 // Utility classes

@@ -8,3 +8,4 @@ echo "Seeding mock data at $BASE_URL/api/mock/demo/seed"
 curl -s -X POST "$BASE_URL/api/mock/demo/seed" | jq .
 
 
+

@@ -94,10 +94,15 @@ function ensureColor(vars, name) {
 
 function checkPairs(vars) {
   const pairs = [
-    { a: '--color-surface', b: '--color-on-surface', min: 4.5 },
-    { a: '--color-primary', b: '--on-primary', min: 4.5 },
-    { a: '--color-card', b: '--color-on-surface', min: 4.5 },
-    { a: '--color-danger', b: '--color-on-surface', min: 4.5 },
+    { a: '--bg-page', b: '--text-primary', min: 4.5, desc: 'page bg on primary text' },
+    { a: '--card-bg', b: '--text-primary', min: 4.5, desc: 'card bg on primary text' },
+    {
+      a: '--color-accent-1',
+      b: '--text-primary',
+      min: 4.5,
+      desc: 'accent-1 (pink) on text',
+    },
+    { a: '--risk-high', b: '--text-primary', min: 4.5, desc: 'high risk on text' },
   ];
 
   const results = [];
@@ -127,11 +132,11 @@ function main() {
     const b = r.pair.b;
     if (!r.ok) {
       console.error(
-        `✖ ${a} on ${b} — ratio: ${r.ratio ? r.ratio.toFixed(2) : 'n/a'} (required ${r.pair.min})`
+        `✖ ${r.pair.desc || a + ' on ' + b} — ratio: ${r.ratio ? r.ratio.toFixed(2) : 'n/a'} (required ${r.pair.min})`
       );
       failed++;
     } else {
-      console.log(`✔ ${a} on ${b} — ratio: ${r.ratio.toFixed(2)}`);
+      console.log(`✔ ${r.pair.desc || a + ' on ' + b} — ratio: ${r.ratio.toFixed(2)}`);
     }
   }
   if (failed) {
