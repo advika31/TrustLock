@@ -1,0 +1,10 @@
+{
+  "application_id": "demo",
+  "risk_score": 42,
+  "drpa_level": "LOW",
+  "explanations": [
+    { "factor": "doc_confidence", "weight": 10, "contribution": 8.2 }
+  ],
+  "audit_id": "audit_stub"
+}
+

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RiskScoreRequest",
+  "type": "object",
+  "required": ["application_id", "features", "meta"],
+  "properties": {
+    "application_id": { "type": "string", "format": "uuid" },
+    "features": { "type": "object" },
+    "meta": { "type": "object" }
+  }
+}
+

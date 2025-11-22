@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AuditAppendRequest",
+  "type": "object",
+  "required": ["actor", "action", "payload"],
+  "properties": {
+    "application_id": { "type": ["string", "null"], "format": "uuid" },
+    "actor": { "type": "string" },
+    "action": { "type": "string" },
+    "payload": { "type": "object" }
+  }
+}
+

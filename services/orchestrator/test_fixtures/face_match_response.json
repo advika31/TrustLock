@@ -1,0 +1,7 @@
+{
+  "application_id": "demo",
+  "similarity": 0.82,
+  "liveness_result": "PASS",
+  "embedding_hash": "sha256:face"
+}
+

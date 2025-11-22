@@ -1,0 +1,10 @@
+{
+  "application_id": "demo",
+  "document_type": "id_card",
+  "ocr_json": {
+    "name": "Demo User"
+  },
+  "doc_confidence": 0.9,
+  "doc_hash": "sha256:ocr"
+}
+

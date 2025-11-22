@@ -1,0 +1,5 @@
+{
+  "storage_path": "s3://bucket/filename",
+  "hash": "sha256:demo"
+}
+

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OCRInferRequest",
+  "type": "object",
+  "required": ["application_id", "document_type", "image_base64", "meta"],
+  "properties": {
+    "application_id": { "type": "string", "format": "uuid" },
+    "document_type": { "type": "string", "enum": ["id_card", "address_proof"] },
+    "image_base64": { "type": "string" },
+    "meta": { "type": "object" }
+  }
+}
+
